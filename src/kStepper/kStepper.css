@@ -1,0 +1,145 @@
+.kStepper {
+	box-sizing: border-box;
+	z-index: 9999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	pointer-events: none;
+
+	&>.kStepper-top,
+	&>.kStepper-bottom {
+		width: 100%;
+		background-color: rgba(0, 0, 0, .5);
+		pointer-events: initial;
+	}
+
+	&>.kStepper-bottom {
+		flex: 1;
+	}
+}
+
+.kStepper-middle {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+
+	&>.kStepper-focus {
+		position: relative;
+		border: 1px solid white;
+	}
+
+	&>.kStepper-middle-first {
+		height: 100%;
+		background-color: rgba(0, 0, 0, .5);
+		pointer-events: initial;
+	}
+
+	&>.kStepper-middle-last {
+		height: 100%;
+		flex: 1;
+		background-color: rgba(0, 0, 0, .5);
+		pointer-events: initial;
+	}
+}
+
+.kStepper-infobox {
+	position: absolute;
+	top: calc(100% + 24px);
+	left: 50%;
+	transform: translateX(-50%);
+	width: 98vw;
+	max-width: 350px;
+	padding: 12px 24px;
+	background-color: hsla(0, 0%, 100%, 1);
+	color: hsl(0, 0%, 24%);
+	border-radius: 4px;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, .12), 0 3px 6px rgba(0, 0, 0, .24);
+
+	& * {
+		margin: 0;
+		padding: 0;
+		pointer-events: initial;
+	}
+
+	&>.kStepper-infobox-header {
+		position: relative;
+
+		&>button {
+			position: absolute;
+			top: -20px;
+			right: -32px;
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: hsl(0, 0%, 24%);
+			color: hsl(0, 0%, 100%);
+			border: 2px solid hsl(0, 0%, 24%);
+			border-radius: 4px;
+			cursor: pointer;
+
+			&.hidden {
+				display: none;
+			}
+
+			& * {
+				pointer-events: none;
+			}
+		}
+	}
+
+	&>.kStepper-infobox-footer {
+		padding-top: 24px;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+
+		&>button {
+			padding: 2px 12px;
+			background-color: hsl(0, 0%, 24%);
+			color: hsl(0, 0%, 100%);
+			border: 2px solid hsl(0, 0%, 24%);
+			border-radius: 4px;
+			cursor: pointer;
+
+			&.hidden {
+				display: none;
+			}
+
+			& * {
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+.kHint {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: rgba(50, 200, 25, 0.5);
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 rgba(0, 255, 0, 1);
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+	}
+
+	70% {
+		box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+	}
+}
